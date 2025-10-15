@@ -1,0 +1,41 @@
+# Project Constitution: Engineering Principles
+
+## 1. SOLID Principles
+- All code must adhere to SOLID object-oriented design principles to ensure maintainability, extensibility, and testability.
+
+## 2. Hexagonal Architecture
+- The project must follow hexagonal (ports and adapters) architecture, separating domain logic from infrastructure and frameworks.
+
+## 3. WebClient over RestTemplate
+- Use `WebClient` for all HTTP client operations. `RestTemplate` is deprecated and must not be used in new code.
+
+## 4. UUIDs for Identifiers
+- Use UUIDs as primary identifiers for all entities and API resources to ensure uniqueness and security.
+
+## 5. Bean Validation
+- Apply Bean Validation (JSR-380, e.g., `javax.validation`) for all input validation at API boundaries.
+
+## 6. Unit Testing
+- Write unit tests for all business logic using Mockito for mocking and AssertJ for assertions.
+
+## 7. Integration Testing
+- Use WireMock for mocking external HTTP services in integration tests.
+
+## 8. Test Coverage
+- Maintain at least 80% line and branch coverage on the service layer. Coverage must be measured and enforced in CI.
+
+## 9. Security Basics
+- Follow security best practices: validate all inputs, use HTTPS, avoid exposing sensitive data, and apply the principle of least privilege.
+
+## 10. Reproducible Builds
+- Ensure builds are reproducible by locking dependency versions and using build tools that support reproducibility (e.g., Maven Wrapper, Gradle Wrapper).
+
+## 11. Code Style
+- Enforce code style and formatting using Spotless. All code must be auto-formatted before merging.
+
+## 12. Accessibility in API Documentation
+- API documentation must be accessible: use clear language, provide examples, and ensure compatibility with screen readers and assistive technologies.
+
+---
+
+All contributors must follow these principles. Violations should be addressed in code review and CI pipelines.
