@@ -1,0 +1,8 @@
+oJUUBmnKZgRlBr4YWsWwe2+uPf28bLXDObS3hvTBqHA=
+src\main\java\com\example\druginteractions\adapters\openfda\config\OpenFdaConfig.java 2025-10-15T23:53:15.567983700Z
+src\main\java\com\example\druginteractions\adapters\openfda\exception\OpenFdaException.java 2025-10-15T23:53:15.585597700Z
+src\main\java\com\example\druginteractions\adapters\openfda\exception\OpenFdaExceptions.java 2025-10-15T23:52:33.275122900Z
+src\main\java\com\example\druginteractions\adapters\openfda\exception\OpenFdaRateLimitException.java 2025-10-15T23:53:15.601696600Z
+src\main\java\com\example\druginteractions\adapters\openfda\OpenFdaAdapter.java 2025-10-15T23:53:15.670843700Z
+src\main\java\com\example\druginteractions\adapters\openfda\OpenFdaResponse.java 2025-10-15T23:53:15.691421700Z
+src\test\java\com\example\druginteractions\adapters\openfda\OpenFdaAdapterTest.java 2025-10-15T23:35:10.511026200Z

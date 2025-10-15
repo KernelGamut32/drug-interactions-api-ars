@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: drug-interactions-api
+  jackson:
+    default-property-inclusion: non_null
+    property-naming-strategy: SNAKE_CASE
+
+server:
+  port: 8080
+
+openfda:
+  baseUrl: https://api.fda.gov
+  # apiKey should be provided via environment variable OPENFDA_API_KEY
+  apiKey: ${OPENFDA_API_KEY:}
