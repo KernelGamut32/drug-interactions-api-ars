@@ -1,0 +1,209 @@
+openapi: 3.1.0
+info:
+  title: Drug Interactions API
+  version: '1.0.0'
+  description: |
+    API for managing drug interaction information and fetching adverse event signals from openFDA.
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+tags:
+  - name: interactions
+    description: Drug interaction management
+  - name: signals
+    description: Drug adverse event signal detection
+
+components:
+  schemas:
+    DrugInteraction:
+      type: object
+      required:
+        - drugA
+        - drugB
+        - note
+      properties:
+        drugA:
+          type: string
+          pattern: '^[A-Za-z][A-Za-z\s-]{1,58}[A-Za-z]$'
+          minLength: 3
+          maxLength: 60
+          description: First drug name
+          example: "Aspirin"
+        drugB:
+          type: string
+          pattern: '^[A-Za-z][A-Za-z\s-]{1,58}[A-Za-z]$'
+          minLength: 3
+          maxLength: 60
+          description: Second drug name
+          example: "Warfarin"
+        note:
+          type: string
+          description: Interaction note
+          example: "Increased risk of bleeding when used together"
+
+    DrugSignals:
+      type: object
+      required:
+        - count
+        - topReactions
+      properties:
+        count:
+          type: integer
+          description: Total number of co-occurrence events
+          example: 150
+        topReactions:
+          type: array
+          items:
+            type: object
+            required:
+              - reaction
+              - n
+            properties:
+              reaction:
+                type: string
+                description: Adverse reaction term
+                example: "HAEMORRHAGE"
+              n:
+                type: integer
+                description: Number of occurrences
+                example: 25
+
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: "Invalid drug name format"
+
+paths:
+  /interactions:
+    post:
+      tags:
+        - interactions
+      summary: Upsert drug interaction
+      description: Create or update an interaction note for a pair of drugs
+      operationId: upsertInteraction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DrugInteraction'
+      responses:
+        '200':
+          description: Interaction successfully created or updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DrugInteraction'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      tags:
+        - interactions
+      summary: Get drug interaction
+      description: Fetch interaction note for a specific drug pair
+      operationId: getInteraction
+      parameters:
+        - name: drugA
+          in: query
+          required: true
+          schema:
+            type: string
+            pattern: '^[A-Za-z][A-Za-z\s-]{1,58}[A-Za-z]$'
+            minLength: 3
+            maxLength: 60
+          description: First drug name
+        - name: drugB
+          in: query
+          required: true
+          schema:
+            type: string
+            pattern: '^[A-Za-z][A-Za-z\s-]{1,58}[A-Za-z]$'
+            minLength: 3
+            maxLength: 60
+          description: Second drug name
+      responses:
+        '200':
+          description: Interaction found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DrugInteraction'
+        '404':
+          description: Interaction not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /signals:
+    get:
+      tags:
+        - signals
+      summary: Get drug co-occurrence signals
+      description: |
+        Query openFDA for adverse events where both drugs appear in patient.drug.medicinalProduct,
+        returning aggregated reaction counts
+      operationId: getSignals
+      parameters:
+        - name: drugA
+          in: query
+          required: true
+          schema:
+            type: string
+            pattern: '^[A-Za-z][A-Za-z\s-]{1,58}[A-Za-z]$'
+            minLength: 3
+            maxLength: 60
+          description: First drug name
+        - name: drugB
+          in: query
+          required: true
+          schema:
+            type: string
+            pattern: '^[A-Za-z][A-Za-z\s-]{1,58}[A-Za-z]$'
+            minLength: 3
+            maxLength: 60
+          description: Second drug name
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 50
+          description: Maximum number of top reactions to return
+      responses:
+        '200':
+          description: Signals successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DrugSignals'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: Error communicating with openFDA
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
