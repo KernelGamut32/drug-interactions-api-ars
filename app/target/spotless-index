@@ -1,7 +1,10 @@
 Ix4QCAgmuzRYUwGV7qu7+FEAYEEWXpJ/5zclJwFqTW4=
 src\main\java\com\example\druginteractions\app\DrugInteractionApplication.java 2025-10-15T23:29:50.185827100Z
-src\main\java\com\example\druginteractions\app\web\DrugInteractionController.java 2025-10-15T23:45:24.619572200Z
-src\main\java\com\example\druginteractions\app\web\dto\DrugInteractionRequest.java 2025-10-15T23:45:24.676563Z
+src\main\java\com\example\druginteractions\app\validation\DrugNameValidator.java 2025-10-16T00:10:31.455354400Z
+src\main\java\com\example\druginteractions\app\validation\ValidDrugName.java 2025-10-16T00:10:31.478363300Z
+src\main\java\com\example\druginteractions\app\web\DrugInteractionController.java 2025-10-16T00:10:31.517655500Z
+src\main\java\com\example\druginteractions\app\web\dto\DrugInteractionRequest.java 2025-10-16T00:10:31.576672600Z
 src\main\java\com\example\druginteractions\app\web\dto\DrugInteractionResponse.java 2025-10-15T23:45:24.692575200Z
-src\main\java\com\example\druginteractions\app\web\error\GlobalExceptionHandler.java 2025-10-15T23:53:15.965085500Z
+src\main\java\com\example\druginteractions\app\web\error\GlobalExceptionHandler.java 2025-10-16T00:10:31.604902300Z
+src\main\java\com\example\druginteractions\app\web\error\ValidationProblemDetails.java 2025-10-16T00:10:31.632908900Z
 src\main\java\com\example\druginteractions\app\web\mapper\DrugInteractionMapper.java 2025-10-15T23:45:24.809953800Z

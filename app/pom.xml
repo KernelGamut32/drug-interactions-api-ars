@@ -20,7 +20,6 @@
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>adapters-openfda</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,10 +37,6 @@
         <dependency>
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.example</groupId>
-            <artifactId>adapters-openfda</artifactId>
         </dependency>
     </dependencies>
 

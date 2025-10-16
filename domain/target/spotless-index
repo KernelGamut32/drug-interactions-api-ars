@@ -1,9 +1,10 @@
 wPvlrdQsGn1EdeqAJM8YJx7orz6iy3GXH8OCKnKyJyo=
+src\main\java\com\example\druginteractions\domain\config\DrugInteractionProperties.java 2025-10-16T00:10:31.031677900Z
 src\main\java\com\example\druginteractions\domain\model\DrugInteraction.java 2025-10-15T23:29:49.845977200Z
 src\main\java\com\example\druginteractions\domain\model\DrugPair.java 2025-10-15T23:29:49.942511100Z
 src\main\java\com\example\druginteractions\domain\model\DrugSignals.java 2025-10-15T23:29:49.964510800Z
 src\main\java\com\example\druginteractions\domain\model\InteractionNote.java 2025-10-15T23:29:49.990508500Z
 src\main\java\com\example\druginteractions\domain\model\OpenFdaSignal.java 2025-10-15T23:29:50.009515700Z
-src\main\java\com\example\druginteractions\domain\ports\DrugInteractionRepository.java 2025-10-15T23:29:50.025732200Z
-src\main\java\com\example\druginteractions\domain\ports\OpenFdaClient.java 2025-10-15T23:29:50.042732800Z
-src\main\java\com\example\druginteractions\domain\service\DrugInteractionService.java 2025-10-15T23:29:50.101737600Z
+src\main\java\com\example\druginteractions\domain\ports\DrugInteractionRepository.java 2025-10-16T00:10:31.060675700Z
+src\main\java\com\example\druginteractions\domain\ports\OpenFdaClient.java 2025-10-15T23:59:02.539331400Z
+src\main\java\com\example\druginteractions\domain\service\DrugInteractionService.java 2025-10-16T00:05:36.021919300Z

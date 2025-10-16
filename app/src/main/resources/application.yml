@@ -9,6 +9,14 @@ server:
   port: 8080
 
 openfda:
-  baseUrl: https://api.fda.gov
+  client:
+    base-url: https://api.fda.gov
+    connect-timeout: 5s
+    read-timeout: 10s
+    retry:
+      max-attempts: 3
+      initial-interval: 100ms
+      max-interval: 1s
+      multiplier: 2.0
   # apiKey should be provided via environment variable OPENFDA_API_KEY
   apiKey: ${OPENFDA_API_KEY:}

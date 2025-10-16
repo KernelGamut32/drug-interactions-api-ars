@@ -1,5 +1,6 @@
 package com.example.druginteractions.domain.service;
 
+import com.example.druginteractions.domain.config.DrugInteractionProperties;
 import com.example.druginteractions.domain.model.DrugPair;
 import com.example.druginteractions.domain.model.InteractionNote;
 import com.example.druginteractions.domain.model.OpenFdaSignal;
@@ -17,13 +18,17 @@ public class DrugInteractionService {
   private final DrugInteractionRepository repository;
   private final OpenFdaClient openFdaClient;
   private final Validator validator;
-  private static final int DEFAULT_SIGNAL_LIMIT = 10;
+  private final DrugInteractionProperties properties;
 
   public DrugInteractionService(
-      DrugInteractionRepository repository, OpenFdaClient openFdaClient, Validator validator) {
+      DrugInteractionRepository repository,
+      OpenFdaClient openFdaClient,
+      Validator validator,
+      DrugInteractionProperties properties) {
     this.repository = repository;
     this.openFdaClient = openFdaClient;
     this.validator = validator;
+    this.properties = properties;
   }
 
   public Optional<InteractionNote> findNote(@Valid DrugPair pair) {
@@ -48,7 +53,7 @@ public class DrugInteractionService {
   }
 
   public Mono<OpenFdaSignal> getSignals(@Valid DrugPair pair) {
-    return getSignals(pair, DEFAULT_SIGNAL_LIMIT);
+    return getSignals(pair, properties.getDefaultSignalLimit());
   }
 
   public Mono<OpenFdaSignal> getSignals(@Valid DrugPair pair, int limit) {

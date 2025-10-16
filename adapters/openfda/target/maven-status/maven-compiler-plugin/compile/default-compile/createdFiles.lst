@@ -1,7 +1,9 @@
 com\example\druginteractions\adapters\openfda\exception\OpenFdaException.class
 com\example\druginteractions\adapters\openfda\exception\OpenFdaRateLimitException.class
+com\example\druginteractions\adapters\openfda\config\OpenFdaClientProperties$Retry.class
 com\example\druginteractions\adapters\openfda\config\OpenFdaConfig.class
 com\example\druginteractions\adapters\openfda\OpenFdaResponse$Error.class
 com\example\druginteractions\adapters\openfda\OpenFdaResponse$TermCount.class
 com\example\druginteractions\adapters\openfda\OpenFdaResponse.class
+com\example\druginteractions\adapters\openfda\config\OpenFdaClientProperties.class
 com\example\druginteractions\adapters\openfda\OpenFdaAdapter.class
