@@ -25,8 +25,12 @@ class OpenFdaAdapterTest {
     // given
     wireMock.stubFor(
         get(urlPathMatching("/drug/event.json.*"))
-            .withQueryParam("search", containing("aspirin"))
-            .withQueryParam("search", containing("warfarin"))
+            .withQueryParam(
+                "search",
+                equalTo(
+                    "patient.drug.medicinalproduct:\"ASPIRIN\" AND patient.drug.medicinalproduct:\"WARFARIN\""))
+            .withQueryParam("count", equalTo("patient.reaction.reactionmeddrapt.exact"))
+            .withQueryParam("limit", equalTo("10"))
             .willReturn(
                 aResponse()
                     .withHeader("Content-Type", "application/json")
