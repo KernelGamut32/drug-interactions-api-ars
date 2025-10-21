@@ -1,9 +1,0 @@
-C:\Users\a_san\source\repos\drug-interactions-api-ars\domain\src\main\java\com\example\druginteractions\domain\config\DrugInteractionProperties.java
-C:\Users\a_san\source\repos\drug-interactions-api-ars\domain\src\main\java\com\example\druginteractions\domain\model\DrugInteraction.java
-C:\Users\a_san\source\repos\drug-interactions-api-ars\domain\src\main\java\com\example\druginteractions\domain\model\DrugPair.java
-C:\Users\a_san\source\repos\drug-interactions-api-ars\domain\src\main\java\com\example\druginteractions\domain\model\DrugSignals.java
-C:\Users\a_san\source\repos\drug-interactions-api-ars\domain\src\main\java\com\example\druginteractions\domain\model\InteractionNote.java
-C:\Users\a_san\source\repos\drug-interactions-api-ars\domain\src\main\java\com\example\druginteractions\domain\model\OpenFdaSignal.java
-C:\Users\a_san\source\repos\drug-interactions-api-ars\domain\src\main\java\com\example\druginteractions\domain\ports\DrugInteractionRepository.java
-C:\Users\a_san\source\repos\drug-interactions-api-ars\domain\src\main\java\com\example\druginteractions\domain\ports\OpenFdaClient.java
-C:\Users\a_san\source\repos\drug-interactions-api-ars\domain\src\main\java\com\example\druginteractions\domain\service\DrugInteractionService.java
